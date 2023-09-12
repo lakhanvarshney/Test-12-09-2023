@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Customization</title>
+    <style>
+        /* Default styles */
+        #sample-text {
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style for the control panel */
+        #control-panel {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sample-text">
+        Sample Text
+    </div>
+
+    <div id="control-panel">
+        <label for="font-size">Font Size:</label>
+        <input type="range" id="font-size" min="10" max="40" step="1" value="16">
+        <span id="font-size-value">16px</span>
+
+        <label for="font-family">Font Type:</label>
+        <select id="font-family">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="Times New Roman, serif">Times New Roman</option>
+            <option value="Verdana, sans-serif">Verdana</option>
+            <option value="Courier New, monospace">Courier New</option>
+        </select>
+    </div>
+
+    <script>
+        // JavaScript to handle font customization
+        const fontSizeInput = document.getElementById('font-size');
+        const fontSizeValue = document.getElementById('font-size-value');
+        const fontFamilySelect = document.getElementById('font-family');
+        const sampleText = document.getElementById('sample-text');
+
+        fontSizeInput.addEventListener('input', () => {
+            const newSize = fontSizeInput.value + 'px';
+            sampleText.style.fontSize = newSize;
+            fontSizeValue.textContent = newSize;
+        });
+
+        fontFamilySelect.addEventListener('change', () => {
+            const newFont = fontFamilySelect.value;
+            sampleText.style.fontFamily = newFont;
+        });
+    </script>
+</body>
+</html>
